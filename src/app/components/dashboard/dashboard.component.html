@@ -1,0 +1,70 @@
+<!-- Botones principales -->
+<div class="container">
+    <div class="buttons-container">
+        <a routerLink="/taskform" class="btn">Nueva Tarea</a>
+        <a routerLink="/categoryform" class="btn">Nueva Categoría</a>
+    </div>
+</div>
+
+<!-- Sección de filtrado y ordenamiento -->
+<div class="container">
+    <form [formGroup]="filterForm" (ngSubmit)="onSubmit()" class="filter-form">
+        <h3>Filtrar y Ordenar</h3>
+        <div class="filter-options">
+            <div class="option-container">
+                <label for="filter-category">Filtrar por categoría:</label>
+                <select id="filter-category" formControlName="categoryId" required>
+                    <option value="all">Todas</option>
+                    <option *ngFor="let category of categories" [value]="category._id">{{ category.category_name }}</option>
+                </select>
+            </div>
+            <div class="option-container">
+                <label for="filter-status">Filtrar por estado:</label>
+                <select id="filter-status" formControlName="status" required>
+                    <option value="all">Todos</option>
+                    <option value="pendiente">Pendiente</option>
+                    <option value="en progreso">En Progreso</option>
+                    <option value="completada">Completada</option>
+                </select>
+            </div>
+            <div class="option-container">
+                <label for="sort-by">Ordenar por:</label>
+                <select id="sort-by" formControlName="sortBy">
+                    <option value="nearest">Más próximos</option>
+                    <option value="farthest">Menos próximos</option>
+                </select>
+            </div>
+            <button type="submit" class="btn">Aplicar</button>
+        </div>
+    </form>
+</div>
+
+<!-- Tabla de tareas -->
+<div class="container">
+    <h2>Tareas</h2>
+    <table class="task-table">
+        <thead>
+            <tr>
+                <th>Título</th>
+                <th>Descripción</th>
+                <th>Estado</th>
+                <th>Fecha límite</th>
+                <th>Categoría</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let task of tasks">
+                <td>{{ task.title }}</td>
+                <td>{{ task.description }}</td>
+                <td>{{ task.status }}</td>
+                <td>{{ task.due_date }}</td>
+                <td>{{ task.category_name }}</td>
+                <td>
+                    <button (click)="deleteTask(task._id)" class="btn">Eliminar</button>
+                    <button (click)="fillFormEdit(task._id)" class="btn">Editar</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

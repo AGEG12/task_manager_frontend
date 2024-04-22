@@ -1,0 +1,83 @@
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Botones principales */
+.buttons-container {
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 20px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #555;
+}
+
+/* Sección de filtrado y ordenamiento */
+.filter-form {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    padding: 10px 20px;
+    margin-bottom: 20px;
+}
+
+.filter-form h3 {
+    margin: 0;
+}
+
+.filter-options {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 85%;
+}
+
+.option-container {
+    padding: 5px;
+}
+
+.filter-options select {
+    margin: 0 20px 0 10px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+/* Tabla de tareas */
+.task-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.task-table th,
+.task-table td {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.task-table th {
+    background-color: #f0f0f0;
+    font-weight: bold;
+}
+
+.task-table td {
+    background-color: #fff;
+}
